@@ -1,0 +1,16 @@
+PODS:
+  - Logomotive (0.1.0)
+
+DEPENDENCIES:
+  - Logomotive (from `../`)
+
+EXTERNAL SOURCES:
+  Logomotive:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Logomotive: 5810eb97884ba82d17acf3d6b479794b27786655
+
+PODFILE CHECKSUM: 9bff3df0255426161b0ac9ca2c414b70cdc4fb33
+
+COCOAPODS: 1.1.1

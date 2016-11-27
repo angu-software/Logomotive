@@ -1,0 +1,6 @@
+framework module Pods_Logomotive_Tests {
+  umbrella header "Pods-Logomotive_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
