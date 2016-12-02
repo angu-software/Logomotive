@@ -51,7 +51,8 @@ public struct Logomotive {
         
         logger.forEach { (logger) in
             if logger.shouldLog(for: level) {
-                logger.log(message: format(object, logLevel: level, filePath: filePath, function: function, line: line, format: logger.format))
+                let formatedMessage = format(object, logLevel: level, filePath: filePath, function: function, line: line, format: logger.format.description)
+                logger.log(message: formatedMessage, with: level)
             }
         }
     }
@@ -79,7 +80,7 @@ fileprivate extension String {
     }
 }
 
-fileprivate extension Bundle {
+internal extension Bundle {
     var executableName: String {
         let executableName = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String ?? ""
         return executableName

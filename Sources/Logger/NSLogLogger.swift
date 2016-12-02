@@ -11,8 +11,8 @@ import Foundation
 public struct NSLogLogger: Logger {
     
     public let logLevel: LogLevel
-    public var format: String {
-        return "#FILE#.#FUNC#:#LINE# #LEVEL#: "
+    public var format: MessageFormat {
+        return MessageFormat().file.string(".").function.string(":").line.space.logLevel.space
     }
     
     public init(logLevel: LogLevel = .error) {
@@ -28,7 +28,7 @@ public struct NSLogLogger: Logger {
         return false
     }
     
-    public func log(message: String) {
+    public func log(message: String, with logLevel: LogLevel) {
         NSLog(message)
     }
 }

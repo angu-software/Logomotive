@@ -20,6 +20,7 @@
 		D6374F6CFEC18C21D135AE8C0BBD755E /* Pods-Logomotive_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 907028B2F45D6C56E3EB3604974FDA53 /* Pods-Logomotive_Tests-dummy.m */; };
 		D8266EF941BB900A9888A3D070FECC6A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E853FDDDA9C34676DCE6776E41B913 /* Logger.swift */; };
 		DB882B02C722D258EC15892FF36B5323 /* Pods-Logomotive_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 30C14EFF3551072065EFDA68E6D81544 /* Pods-Logomotive_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E12031761DF14267000FE955 /* MessageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12031751DF14267000FE955 /* MessageFormat.swift */; };
 		E40153B797E8EFE61A57B3B7A9B6806B /* Logomotive-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B38BDD64BE78C49008DAEA788DE9B8FD /* Logomotive-dummy.m */; };
 		E77B221A25E95AF6589ABED6E4BE7797 /* Logomotive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB505B44CE047947EB780832DDB8B8FF /* Logomotive.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CD7D344D9A7C6E9C4B09F5CC9C596C71 /* LogLevel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		DD97E22C071C22230E93D4F76CAB7942 /* Pods-Logomotive_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Logomotive_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E12031751DF14267000FE955 /* MessageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFormat.swift; sourceTree = "<group>"; };
 		E15FE1B9722C9768FFECE35A202101A7 /* Logomotive.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Logomotive.modulemap; sourceTree = "<group>"; };
 		E9A28F08536469C6D94AE4A4CB34B105 /* Pods-Logomotive_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Logomotive_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F24398ED2E264B657FE7202C555C9915 /* NSLogLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NSLogLogger.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				67E853FDDDA9C34676DCE6776E41B913 /* Logger.swift */,
 				CD7D344D9A7C6E9C4B09F5CC9C596C71 /* LogLevel.swift */,
 				FB505B44CE047947EB780832DDB8B8FF /* Logomotive.swift */,
+				E12031751DF14267000FE955 /* MessageFormat.swift */,
 				B34E7205E2A9A83FA4CEAB952B8A2EC9 /* Logger */,
 			);
 			path = Sources;
@@ -356,6 +359,7 @@
 				4604223B885D2735D5A658DD7C8D072B /* FileLogger.swift in Sources */,
 				D8266EF941BB900A9888A3D070FECC6A /* Logger.swift in Sources */,
 				53CAA17410A2E68406C14E58D26D75E4 /* LogLevel.swift in Sources */,
+				E12031761DF14267000FE955 /* MessageFormat.swift in Sources */,
 				E40153B797E8EFE61A57B3B7A9B6806B /* Logomotive-dummy.m in Sources */,
 				E77B221A25E95AF6589ABED6E4BE7797 /* Logomotive.swift in Sources */,
 				778B344A7C763CF1E9393C8DC1CBCF17 /* NSLogLogger.swift in Sources */,

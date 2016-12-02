@@ -10,10 +10,24 @@ import Foundation
 
 public protocol Logger {
     var logLevel: LogLevel { get }
-    var format: String { get }
-    
-    init(logLevel: LogLevel)
-    
+    var format: MessageFormat { get }
+        
     func shouldLog(for level: LogLevel) -> Bool
-    func log(message: String)
+    func log(message: String, with logLevel: LogLevel)
+}
+
+public extension Logger {
+    
+    public var format: MessageFormat {
+        return MessageFormat.default
+    }
+    
+    public func shouldLog(for level: LogLevel) -> Bool {
+        
+        if level >= logLevel {
+            return true
+        }
+        
+        return false
+    }
 }
