@@ -3,10 +3,10 @@ use_frameworks!
 target 'Logomotive_Example' do
   pod 'Logomotive', :path => '../'
 
-  target 'Logomotive_Tests' do
-    inherit! :search_paths
+  # target 'Logomotive_Tests' do
+  #   inherit! :search_paths
 
-   # pod 'Quick', '~> 0.8'
-   # pod 'Nimble', '~> 3.0'
-  end
+  #  pod 'Quick', '~> 0.8'
+  #  pod 'Nimble', '~> 3.0'
+  # end
 end
