@@ -59,6 +59,7 @@ public struct MessageFormat: CustomStringConvertible {
     }
     
     // MARK: CustomStringConvertible
+    
     public var description: String {
         return formatString
     }

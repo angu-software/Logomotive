@@ -30,7 +30,7 @@ public enum LogLevel: Int, Comparable, CustomStringConvertible {
         }
     }
     
-    // MARK: -Comparable
+    // MARK: - Comparable
     
     public static func ==(lhs: LogLevel, rhs: LogLevel) -> Bool {
         return lhs.rawValue == rhs.rawValue

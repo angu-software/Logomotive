@@ -16,13 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        #if UNITTESTS
+            return true
+        #endif
+        
         Log.logger = [ConsoleLogger(logLevel: .debug),
                       NSLogLogger(logLevel: .debug),
                       FileLogger(logLevel: .debug)]
-        Log.debug("This is an debug log")
-        Log.info("This is a info log")
+        Log.debug("This is a debug log")
+        Log.info("This is an info log")
         Log.warning("This is a warning log")
-        Log.error("This is an error log")
+        Log.error("Juli ist toll")
 
         return true
     }
