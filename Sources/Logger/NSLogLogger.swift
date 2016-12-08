@@ -19,15 +19,6 @@ public struct NSLogLogger: Logger {
         self.logLevel = logLevel
     }
     
-    public func shouldLog(for level: LogLevel) -> Bool {
-        
-        if level >= logLevel {
-            return true
-        }
-        
-        return false
-    }
-    
     public func log(message: String, with logLevel: LogLevel) {
         NSLog(message)
     }

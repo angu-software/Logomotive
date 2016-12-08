@@ -8,15 +8,47 @@
 
 import Foundation
 
-public struct MessageFormat: CustomStringConvertible {
+public struct MessageFormat: Equatable, CustomStringConvertible {
     
-    // "#DATE# [#EXECUTABLE#] #FILE#.#FUNC#:#LINE# #LEVEL#: "
+    //
     
-    public static var `default`: MessageFormat {
+    public static let `default`: MessageFormat = {
         return MessageFormat().dateTime.space.string("[").executable.string("]").space.file.string(".").function.string(":").line.space.logLevel.string(":").space
-    }
+    }()
     
     private let formatString: String
+    
+    public var dateTime: MessageFormat {
+        return append("#DATE#")
+    }
+    
+    public var executable: MessageFormat {
+        return append("#EXEC#")
+    }
+    
+    public var file: MessageFormat {
+        return append("#FILE#")
+    }
+    
+    public var function: MessageFormat {
+        return append("#FUNC#")
+    }
+    
+    public var line: MessageFormat {
+        return append("#LINE#")
+    }
+    
+    public var logLevel: MessageFormat {
+        return append("#LEVEL#")
+    }
+    
+    public var space: MessageFormat {
+        return append(" ")
+    }
+    
+    public func string(_ text: String) -> MessageFormat {
+        return append(text)
+    }
     
     public init() {
         self.init("")
@@ -26,36 +58,14 @@ public struct MessageFormat: CustomStringConvertible {
         self.formatString = formatString
     }
     
-    public var dateTime: MessageFormat {
-        return string("#DATE#")
+    private func append(_ format: String) -> MessageFormat {
+        return MessageFormat(formatString + format)
     }
     
-    public var executable: MessageFormat {
-        return string("#EXECUTABLE#")
-    }
+    // MARK: Equitable
     
-    public var file: MessageFormat {
-        return string("#FILE#")
-    }
-    
-    public var function: MessageFormat {
-        return string("#FUNC#")
-    }
-    
-    public var line: MessageFormat {
-        return string("#LINE#")
-    }
-    
-    public var logLevel: MessageFormat {
-        return string("#LEVEL#")
-    }
-    
-    public var space: MessageFormat {
-        return string(" ")
-    }
-    
-    public func string(_ text: String) -> MessageFormat {
-        return MessageFormat(formatString + text)
+    public static func ==(lhs: MessageFormat, rhs: MessageFormat) -> Bool {
+        return lhs.formatString == rhs.formatString
     }
     
     // MARK: CustomStringConvertible

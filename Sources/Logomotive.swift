@@ -14,53 +14,57 @@ public struct Logomotive {
     
     public static var logger: [Logger] = [ConsoleLogger(logLevel: .error)]
     
-    public static func debug<T>(_ object: T, filePath: String = #file, function: String = #function, line: Int = #line) {
+    public static func debug<T>(_ object: T, date: Date = Date(), filePath: String = #file, function: String = #function, line: Int = #line) {
         logMessage(object,
                    level: .debug,
+                   date: date,
                    filePath: filePath,
                    function: function,
                    line: line)
     }
     
-    public static func info<T>(_ object: T, filePath: String = #file, function: String = #function, line: Int = #line) {
+    public static func info<T>(_ object: T, date: Date = Date(), filePath: String = #file, function: String = #function, line: Int = #line) {
         logMessage(object,
                    level: .info,
+                   date: date,
                    filePath: filePath,
                    function: function,
                    line: line)
     }
     
-    public static func warning<T>(_ object: T, filePath: String = #file, function: String = #function, line: Int = #line) {
+    public static func warning<T>(_ object: T, date: Date = Date(), filePath: String = #file, function: String = #function, line: Int = #line) {
         logMessage(object,
                    level: .warning,
+                   date: date,
                    filePath: filePath,
                    function: function,
                    line: line)
     }
     
-    public static func error<T>(_ object: T, filePath: String = #file, function: String = #function, line: Int = #line) {
+    public static func error<T>(_ object: T, date: Date = Date(), filePath: String = #file, function: String = #function, line: Int = #line) {
         logMessage(object,
                    level: .error,
+                   date: date,
                    filePath: filePath,
                    function: function,
                    line: line)
     }
     
-    private static func logMessage<T>(_ object: T, level: LogLevel, filePath: String, function: String, line: Int) {
+    private static func logMessage<T>(_ object: T, level: LogLevel, date: Date, filePath: String, function: String, line: Int) {
         let logMessage =
         
         logger.forEach { (logger) in
             if logger.shouldLog(for: level) {
-                let formatedMessage = format(object, logLevel: level, filePath: filePath, function: function, line: line, format: logger.format.description)
+                let formatedMessage = format(object, logLevel: level, date: date, filePath: filePath, function: function, line: line, format: logger.format.description)
                 logger.log(message: formatedMessage, with: level)
             }
         }
     }
     
-    private static func format<T>(_ object: T, logLevel: LogLevel, filePath: String, function: String, line: Int, format: String) -> String {
+    private static func format<T>(_ object: T, logLevel: LogLevel, date: Date, filePath: String, function: String, line: Int, format: String) -> String {
         var formatedMessage = format
-        formatedMessage = formatedMessage.replacingOccurrences(of: "#DATE#", with: "\(Date())")
-        formatedMessage = formatedMessage.replacingOccurrences(of: "#EXECUTABLE#", with: "\(Bundle.main.executableName)")
+        formatedMessage = formatedMessage.replacingOccurrences(of: "#DATE#", with: "\(date)")
+        formatedMessage = formatedMessage.replacingOccurrences(of: "#EXEC#", with: "\(Bundle.main.executableName)")
         formatedMessage = formatedMessage.replacingOccurrences(of: "#FILE#", with: "\(filePath.filename)")
         formatedMessage = formatedMessage.replacingOccurrences(of: "#FUNC#", with: "\(function)")
         formatedMessage = formatedMessage.replacingOccurrences(of: "#LINE#", with: "\(line)")

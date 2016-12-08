@@ -10,6 +10,25 @@ import Logomotive
 import Quick
 import Nimble
 
+class LoggerTests: QuickSpec {
+    override func spec() {
+        let logger = TestLogger(logLevel: .debug)
+        itBehavesLike("format must equal default") { ["format": logger.format] }
+        itBehavesLike("should log") { ["logger": logger] }
+        
+        let errorLogger = TestLogger(logLevel: .error)
+        itBehavesLike("format must equal default") { ["format": errorLogger.format] }
+        itBehavesLike("should not log") { ["logger": errorLogger] }
+    }
+}
+
+struct TestLogger: Logger {
+    var logLevel: LogLevel
+    
+    func log(message: String, with logLevel: LogLevel) {
+    }
+}
+
 class LoggerTestConfiguration: QuickConfiguration {
     override class func configure(_ configuration: Configuration) {
         sharedExamples("should log") { (sharedExampleContext: @escaping SharedExampleContext) in
@@ -35,25 +54,5 @@ class LoggerTestConfiguration: QuickConfiguration {
                 expect(format?.description).to(equal(MessageFormat.default.description))
             }
         }
-    }
-}
-
-class LoggerTests: QuickSpec {
-    override func spec() {
-        let logger = TestLogger(logLevel: .debug)
-        itBehavesLike("format must equal default") { ["format": logger.format] }
-        itBehavesLike("should log") { ["logger": logger] }
-        
-        let errorLogger = TestLogger(logLevel: .error)
-        itBehavesLike("format must equal default") { ["format": errorLogger.format] }
-        itBehavesLike("should not log") { ["logger": errorLogger] }
-    }
-}
-
-struct TestLogger: Logger {
-    var logLevel: LogLevel
-    
-    func log(message: String, with logLevel: LogLevel) {
-        
     }
 }
