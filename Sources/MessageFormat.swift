@@ -10,10 +10,8 @@ import Foundation
 
 public struct MessageFormat: Equatable, CustomStringConvertible {
     
-    //
-    
     public static let `default`: MessageFormat = {
-        return MessageFormat().dateTime.space.string("[").executable.string("]").space.file.string(".").function.string(":").line.space.logLevel.string(":").space
+        return MessageFormat().dateTime.space.string("[").executable.string("]").space.file.string(".").function.string(":").line.space.logLevel.space.emoji.string(":").space
     }()
     
     private let formatString: String
@@ -36,6 +34,10 @@ public struct MessageFormat: Equatable, CustomStringConvertible {
     
     public var line: MessageFormat {
         return append("#LINE#")
+    }
+    
+    public var emoji: MessageFormat {
+        return append("#EMOJI#")
     }
     
     public var logLevel: MessageFormat {

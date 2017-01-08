@@ -55,13 +55,13 @@ public struct Logomotive {
         
         logger.forEach { (logger) in
             if logger.shouldLog(for: level) {
-                let formatedMessage = format(object, logLevel: level, date: date, filePath: filePath, function: function, line: line, format: logger.format.description)
+                let formatedMessage = format(object, logLevel: level, date: date, filePath: filePath, function: function, line: line, logger: logger, format: logger.format.description)
                 logger.log(message: formatedMessage, with: level)
             }
         }
     }
     
-    private static func format<T>(_ object: T, logLevel: LogLevel, date: Date, filePath: String, function: String, line: Int, format: String) -> String {
+    private static func format<T>(_ object: T, logLevel: LogLevel, date: Date, filePath: String, function: String, line: Int, logger: Logger, format: String) -> String {
         var formatedMessage = format
         formatedMessage = formatedMessage.replacingOccurrences(of: "#DATE#", with: "\(date)")
         formatedMessage = formatedMessage.replacingOccurrences(of: "#EXEC#", with: "\(Bundle.main.executableName)")
@@ -69,6 +69,7 @@ public struct Logomotive {
         formatedMessage = formatedMessage.replacingOccurrences(of: "#FUNC#", with: "\(function)")
         formatedMessage = formatedMessage.replacingOccurrences(of: "#LINE#", with: "\(line)")
         formatedMessage = formatedMessage.replacingOccurrences(of: "#LEVEL#", with: "\(logLevel.description)")
+        formatedMessage = formatedMessage.replacingOccurrences(of: "#EMOJI#", with: "\(logger.emoji(for: logLevel))")
         formatedMessage += "\(object)"
         
         return formatedMessage

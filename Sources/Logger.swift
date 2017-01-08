@@ -22,6 +22,19 @@ public extension Logger {
         return MessageFormat.default
     }
     
+    public func emoji(for logLevel:LogLevel) -> String {
+        switch logLevel {
+        case .debug:
+            return "🐞"
+        case .info:
+            return "ℹ️"
+        case .warning:
+            return "⚠️"
+        case .error:
+            return "☢️"
+        }
+    }
+    
     public func shouldLog(for level: LogLevel) -> Bool {
         
         if level >= logLevel {
