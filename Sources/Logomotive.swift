@@ -50,9 +50,7 @@ public struct Logomotive {
                    line: line)
     }
     
-    private static func logMessage<T>(_ object: T, level: LogLevel, date: Date, filePath: String, function: String, line: Int) {
-        let logMessage =
-        
+    private static func logMessage<T>(_ object: T, level: LogLevel, date: Date, filePath: String, function: String, line: Int) {       
         logger.forEach { (logger) in
             if logger.shouldLog(for: level) {
                 let formatedMessage = format(object, logLevel: level, date: date, filePath: filePath, function: function, line: line, logger: logger, format: logger.format.description)
