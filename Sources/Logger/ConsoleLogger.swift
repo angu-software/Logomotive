@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ConsoleLogger: Logger {
+public class ConsoleLogger: Logger {
     
     public let logLevel: LogLevel
     
