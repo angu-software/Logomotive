@@ -68,7 +68,7 @@ class MessageFormatTestConfiguration: QuickConfiguration {
         sharedExamples("format description") { (sharedExampleContext: @escaping SharedExampleContext) in
             let params = sharedExampleContext()
             let expectedDescription = params["expected"] as? String
-            it("is equal to \(expectedDescription)") {
+            it("is equal to \(expectedDescription!)") {
                 let format = params["messageFormat"] as? MessageFormat
                 expect(format?.description).to(equal(expectedDescription))
             }
